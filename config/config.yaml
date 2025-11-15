@@ -1,0 +1,50 @@
+# Configuration file for Time Series Analysis Project
+
+# Data generation parameters
+data:
+  n_points: 1000
+  trend_strength: 2.0
+  noise_level: 1.0
+  seasonality_period: 50
+  seasonality_amplitude: 3.0
+  random_seed: 42
+
+# Model parameters
+models:
+  online_learning:
+    window_size: 10
+    learning_rate: 0.01
+    max_iter: 1
+    
+  arima:
+    order: [1, 1, 1]
+    seasonal_order: [1, 1, 1, 12]
+    
+  prophet:
+    yearly_seasonality: true
+    weekly_seasonality: true
+    daily_seasonality: false
+    
+  lstm:
+    sequence_length: 20
+    hidden_size: 50
+    num_layers: 2
+    dropout: 0.2
+    epochs: 100
+    batch_size: 32
+
+# Visualization settings
+visualization:
+  figure_size: [12, 8]
+  dpi: 100
+  style: seaborn-v0_8
+  colors:
+    primary: '#1f77b4'
+    secondary: '#ff7f0e'
+    tertiary: '#2ca02c'
+
+# Logging configuration
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: logs/time_series_analysis.log
